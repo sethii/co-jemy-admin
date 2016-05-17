@@ -1,0 +1,50 @@
+<?php
+
+namespace AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MenuItem
+ *
+ * @ORM\Table(name="menu_items")
+ * @ORM\Entity
+ */
+class MenuItem
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="decimal", scale=2)
+     */
+    private $price;
+
+    /**
+     * @var \AdminBundle\Entity\FoodSupplier
+     *
+     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\FoodSupplier", inversedBy="menuItems")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="food_supplier_id", referencedColumnName="id")
+     * })
+     */
+    private $foodSupplier;
+
+
+}
+

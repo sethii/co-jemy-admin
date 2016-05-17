@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FoodSupplier</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ foodSupplier.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ foodSupplier.name }}</td>
+            </tr>
+            <tr>
+                <th>Deliverycost</th>
+                <td>{{ foodSupplier.deliveryCost }}</td>
+            </tr>
+            <tr>
+                <th>Freedeliverythreshold</th>
+                <td>{{ foodSupplier.freeDeliveryThreshold }}</td>
+            </tr>
+            <tr>
+                <th>Singlepackagecost</th>
+                <td>{{ foodSupplier.singlePackageCost }}</td>
+            </tr>
+            <tr>
+                <th>Phonenumber</th>
+                <td>{{ foodSupplier.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Websiteurl</th>
+                <td>{{ foodSupplier.websiteUrl }}</td>
+            </tr>
+            <tr>
+                <th>Menuurl</th>
+                <td>{{ foodSupplier.menuUrl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('foodsupplier_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('foodsupplier_edit', { 'id': foodSupplier.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

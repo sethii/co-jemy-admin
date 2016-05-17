@@ -1,0 +1,24 @@
+foodsupplier_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:FoodSupplier:index" }
+    methods:  GET
+
+foodsupplier_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:FoodSupplier:show" }
+    methods:  GET
+
+foodsupplier_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:FoodSupplier:new" }
+    methods:  [GET, POST]
+
+foodsupplier_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:FoodSupplier:edit" }
+    methods:  [GET, POST]
+
+foodsupplier_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:FoodSupplier:delete" }
+    methods:  DELETE

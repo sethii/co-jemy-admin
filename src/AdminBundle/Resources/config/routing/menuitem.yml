@@ -1,0 +1,24 @@
+menuitem_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:MenuItem:index" }
+    methods:  GET
+
+menuitem_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:MenuItem:show" }
+    methods:  GET
+
+menuitem_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:MenuItem:new" }
+    methods:  [GET, POST]
+
+menuitem_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:MenuItem:edit" }
+    methods:  [GET, POST]
+
+menuitem_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:MenuItem:delete" }
+    methods:  DELETE

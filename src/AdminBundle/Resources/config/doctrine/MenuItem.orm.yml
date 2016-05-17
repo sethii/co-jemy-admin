@@ -1,0 +1,18 @@
+AdminBundle\Entity\MenuItem:
+    type: entity
+    table: menu_items
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100
+        price:
+            type: decimal
+            scale: 2
+    manyToOne:
+        foodSupplier:
+            targetEntity: FoodSupplier
+            inversedBy: menuItems

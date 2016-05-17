@@ -1,0 +1,7 @@
+admin_foodsupplier:
+    resource: "@AdminBundle/Resources/config/routing/foodsupplier.yml"
+    prefix:   /foodsupplier
+
+admin_menuitem:
+    resource: "@AdminBundle/Resources/config/routing/menuitem.yml"
+    prefix:   /menuitem

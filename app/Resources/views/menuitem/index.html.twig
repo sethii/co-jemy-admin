@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>MenuItem list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menuItem in menuItems %}
+            <tr>
+                <td><a href="{{ path('menuitem_show', { 'id': menuItem.id }) }}">{{ menuItem.id }}</a></td>
+                <td>{{ menuItem.name }}</td>
+                <td>{{ menuItem.price }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('menuitem_show', { 'id': menuItem.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('menuitem_edit', { 'id': menuItem.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('menuitem_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

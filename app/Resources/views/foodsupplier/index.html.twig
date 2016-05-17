@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FoodSupplier list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Deliverycost</th>
+                <th>Freedeliverythreshold</th>
+                <th>Singlepackagecost</th>
+                <th>Phonenumber</th>
+                <th>Websiteurl</th>
+                <th>Menuurl</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for foodSupplier in foodSuppliers %}
+            <tr>
+                <td><a href="{{ path('foodsupplier_show', { 'id': foodSupplier.id }) }}">{{ foodSupplier.id }}</a></td>
+                <td>{{ foodSupplier.name }}</td>
+                <td>{{ foodSupplier.deliveryCost }}</td>
+                <td>{{ foodSupplier.freeDeliveryThreshold }}</td>
+                <td>{{ foodSupplier.singlePackageCost }}</td>
+                <td>{{ foodSupplier.phoneNumber }}</td>
+                <td>{{ foodSupplier.websiteUrl }}</td>
+                <td>{{ foodSupplier.menuUrl }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('foodsupplier_show', { 'id': foodSupplier.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('foodsupplier_edit', { 'id': foodSupplier.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('foodsupplier_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

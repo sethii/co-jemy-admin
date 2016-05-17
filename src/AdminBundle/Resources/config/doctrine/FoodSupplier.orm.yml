@@ -1,0 +1,36 @@
+AdminBundle\Entity\FoodSupplier:
+    type: entity
+    table: food_suppliers
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100
+        deliveryCost:
+            type: decimal
+            scale: 2
+        freeDeliveryThreshold:
+            type: decimal
+            scale: 2
+        singlePackageCost:
+            type: decimal
+            scale: 2
+        phoneNumber:
+            type: string
+            length: 25
+        websiteUrl:
+            type: string
+            length: 100
+        menuUrl:
+            type: string
+            length: 500
+            nullable: true
+    oneToMany:
+        menuItems:
+            targetEntity: MenuItem
+            mappedBy: foodSupplier
+            nullable: true
+            cascade: ["remove"]

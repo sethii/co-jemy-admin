@@ -1,0 +1,89 @@
+<?php
+
+namespace AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FoodSupplier
+ *
+ * @ORM\Table(name="food_suppliers")
+ * @ORM\Entity
+ */
+class FoodSupplier
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="delivery_cost", type="decimal", scale=2)
+     */
+    private $deliveryCost;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="free_delivery_threshold", type="decimal", scale=2)
+     */
+    private $freeDeliveryThreshold;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="single_package_cost", type="decimal", scale=2)
+     */
+    private $singlePackageCost;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_number", type="string", length=25)
+     */
+    private $phoneNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="website_url", type="string", length=100)
+     */
+    private $websiteUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="menu_url", type="string", length=500, nullable=true)
+     */
+    private $menuUrl;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="AdminBundle\Entity\MenuItem", mappedBy="foodSupplier", cascade={"remove"})
+     */
+    private $menuItems;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->menuItems = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+
